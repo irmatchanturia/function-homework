@@ -168,11 +168,20 @@ console.log(double(5))
 // აბრუნებს უკვე დათვლილ პასუხს.
 console.log("დავალება 10")
 
-function memorize(){
+let otherFunc = (string) =>{
+    console.log("ფუნქციის გამოძახება")//შევამოწმე მეორედ იძახებს თუ არა 
+    return string.length} 
+    
+let cache = {}
 
+function memorize(oto, string){
+    if(cache[string]!==undefined){
+        console.log("ქეშიდან წამოღება")
+        return cache[string]
+    }
+    cache[string] = oto(string);
+    return cache[string]
 }
 
-
-
-
-
+console.log(memorize(otherFunc, "აველინა"))
+console.log(memorize(otherFunc, "აველინა"))
